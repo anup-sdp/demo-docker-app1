@@ -1,0 +1,62 @@
+simple app to create docker container from wsl2. sept 12, 2026
+
+static html files.
+
+
+process of creating the project in wsl2, open ubuntu terminal:
+anup@DESKTOP-741C05O:~$ ls  --(list folders)
+LaravelProjects  projects
+anup@DESKTOP-741C05O:~$ cd projects
+anup@DESKTOP-741C05O:~/projects$ ls
+anup@DESKTOP-741C05O:~/projects$ mkdir demo-docker-app1
+anup@DESKTOP-741C05O:~/projects$ cd demo-docker-app1
+anup@DESKTOP-741C05O:~/projects/demo-docker-app1$ code .
+
+write the html files.
+
+Nginx is designed specifically to serve static files.
+Dockerfile, no extension:
+FROM nginx:alpine
+COPY . /usr/share/nginx/html
+
+
+then run (build image):
+  docker build -t demo-docker-app1 .
+
+Map port 8080 on your PC to port 80 (Nginx default) inside the container:
+  docker run -d -p 8080:80 --name my-static-app demo-docker-app1
+  docker run --rm -p 8080:80 demo-docker-app1
+
+runs at:
+http://localhost:8080/
+
+
+Quick Reference Commands:
+
+ Action                  | Command                                 
+-------------------------+------------------------------------------
+ Build image             | docker build -t name:tag .              
+ Run container           | docker run -d -p host:container name:tag
+ List images             | docker images                           
+ List running containers | docker ps                               
+ Stop container          | docker stop <name or id>                
+ Remove container        | docker rm <name or id>                  
+ Remove image            | docker rmi <name or id>                 
+ Enter running container | docker exec -it <name> bash 
+
+
+
+==============
+github upload:
+git init
+git status
+git branch -M main
+git add .
+git commit -m "initial commit"
+
+
+# later
+git remote add origin https://github.com/anup-sdp/demo-docker-app1.git
+
+git push -u origin main
+
