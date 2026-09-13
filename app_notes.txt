@@ -1,7 +1,11 @@
 simple app to create docker container from wsl2. sept 12, 2026
 
-static html files.
+only serves static html files.
 
+---
+wsl2
+Extensions needed in vs code : container tools(or docker), dev containers, wsl, by microsort
+---
 
 process of creating the project in wsl2, open ubuntu terminal:
 anup@DESKTOP-741C05O:~$ ls  --(list folders)
@@ -58,6 +62,6 @@ git commit -m "initial commit"
 # later
 git remote add origin https://github.com/anup-sdp/demo-docker-app1.git
 git add .
-git commit -m "v0.3"
+git commit -m "v0.4"
 git push -u origin main
 
